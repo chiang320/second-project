@@ -1,0 +1,24 @@
+package org.example.model;
+
+public class MyFirstThread extends Thread {
+    private String treadName;
+
+    public MyFirstThread(String treadName) {
+        this.treadName = treadName;
+        System.out.println("建立執行續:" + treadName);
+    }
+
+    @Override
+    public void run() {
+        System.out.println("執行緒" + treadName + "正在執行...");
+        try {
+            for (int i = 0; i < 3; i++) {
+                System.out.println("執行緒" + treadName + "數到:" + i);
+                Thread.sleep(500);// 暫停0.5秒
+            }
+        } catch (InterruptedException e) {
+            System.out.println("執行緒" + treadName + "被中斷");
+        }
+        System.out.println("執行緒" + treadName + "運行結束");
+    }
+}
